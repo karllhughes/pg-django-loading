@@ -9,9 +9,6 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=200, null=True)
     objects = CopyManager()
 
-    def __str__(self):
-        return self.name
-
     def save(self, *args, **kwargs):
         if self.name:
             self.first_name, self.last_name = self.name.split(" ", 1)
